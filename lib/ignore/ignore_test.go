@@ -295,7 +295,7 @@ func TestCaching(t *testing.T) {
 	// the file changes.
 
 	fd2.Write([]byte("/z/\n"))
-	fd2.Sync()
+//	fd2.Sync()
 	fakeTime := time.Now().Add(5 * time.Second)
 	fs.Chtimes(fd2.Name(), fakeTime, fakeTime)
 
@@ -327,7 +327,7 @@ func TestCaching(t *testing.T) {
 	// Modify the root file, expect cache to be invalidated
 
 	fd1.Write([]byte("/a/\n"))
-	fd1.Sync()
+//	fd1.Sync()
 	fakeTime = time.Now().Add(5 * time.Second)
 	fs.Chtimes(fd1.Name(), fakeTime, fakeTime)
 
@@ -520,7 +520,7 @@ func TestCacheReload(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	fd.Sync()
+//	fd.Sync()
 	fakeTime := time.Now().Add(5 * time.Second)
 	fs.Chtimes(fd.Name(), fakeTime, fakeTime)
 

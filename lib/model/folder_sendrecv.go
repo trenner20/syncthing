@@ -1626,9 +1626,9 @@ func (f *sendReceiveFolder) dbUpdaterRoutine(dbUpdateChan <-chan dbUpdateJob) {
 					l.Debugf("fsync %q failed: %v", dir, err)
 					continue
 				}
-				if err := fd.Sync(); err != nil {
-					l.Debugf("fsync %q failed: %v", dir, err)
-				}
+//				if err := fd.Sync(); err != nil {
+//					l.Debugf("fsync %q failed: %v", dir, err)
+//				}
 				fd.Close()
 			}
 		}

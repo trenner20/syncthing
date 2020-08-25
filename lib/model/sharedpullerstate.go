@@ -105,13 +105,13 @@ func (w *lockedWriterAt) WriteAt(p []byte, off int64) (n int, err error) {
 func (w *lockedWriterAt) SyncClose(fsync bool) error {
 	w.mut.Lock()
 	defer w.mut.Unlock()
-	if fsync {
-		if err := w.fd.Sync(); err != nil {
-			// Sync() is nice if it works but not worth failing the
-			// operation over if it fails.
-			l.Debugf("fsync failed: %v", err)
-		}
-	}
+//	if fsync {
+//		if err := w.fd.Sync(); err != nil {
+//			// Sync() is nice if it works but not worth failing the
+//			// operation over if it fails.
+//			l.Debugf("fsync failed: %v", err)
+//		}
+//	}
 	return w.fd.Close()
 }
 
