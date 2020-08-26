@@ -135,7 +135,7 @@ func (f *FolderConfiguration) CreateMarker() error {
 		return err
 	}
 	if dir, err := fs.Open("."); err != nil {
-		l.Debugln("folder marker: open . failed:", err)
+		l.Debugln("folder marker: open . failed:", err, dir)
 	} //else if err := dir.Sync(); err != nil {
 	//	l.Debugln("folder marker: fsync . failed:", err)
 	//}

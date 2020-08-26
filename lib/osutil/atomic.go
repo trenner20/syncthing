@@ -86,7 +86,7 @@ func (w *AtomicWriter) Close() error {
 //	if err := w.next.Sync(); err != nil {
 //		w.err = err
 //		return err
-	}
+//	}
 
 	if err := w.next.Close(); err != nil {
 		w.err = err
@@ -108,7 +108,6 @@ func (w *AtomicWriter) Close() error {
 
 	// fsync the directory too
 	if fd, err := w.fs.Open(filepath.Dir(w.next.Name())); err == nil {
-//		fd.Sync()
 		fd.Close()
 	}
 
